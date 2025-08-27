@@ -5,7 +5,7 @@ const supportedLocales = ['en', 'ru', 'zh-Hant'];
 const localeData = {
   en: { plurals: en },
   ru: { plurals: ru },
-  'zh-Hant': { plurals: zh }
+  'zh-Hant': { plurals: zh },
 };
 
 const localeCatalog = window.i18n ? window.i18n.messages : undefined;

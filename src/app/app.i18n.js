@@ -1,10 +1,11 @@
 import { i18n } from '@lingui/core';
-import { en, ru } from 'make-plural/plurals';
+import { en, ru, zh } from 'make-plural/plurals';
 
-const supportedLocales = ['en', 'ru'];
+const supportedLocales = ['en', 'ru', 'zh-Hant'];
 const localeData = {
   en: { plurals: en },
   ru: { plurals: ru },
+  'zh-Hant': { plurals: zh }
 };
 
 const localeCatalog = window.i18n ? window.i18n.messages : undefined;

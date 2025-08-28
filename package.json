@@ -1,10 +1,10 @@
 {
-  "name": "@funboxteam/blueprinter",
+  "name": "@dafeng-innov/blueprinter",
   "version": "6.1.0",
   "description": "Replacement of Aglio library for rendering generated AST as HTML page.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/funbox/blueprinter"
+    "url": "https://github.com/dafeng-innov/blueprinter.git"
   },
   "author": "FunBox LLC <wanted@fun-box.ru> (https://funbox.ru)",
   "license": "Apache-2.0",
@@ -29,7 +29,7 @@
     "lint:test": "eslint -c tests/.eslintrc tests",
     "lint": "npm run -s lint:scss && npm run -s lint:js && npm run -s lint:test",
     "prebuild": "npm run lint",
-    "prepublishOnly": "if [ -z \"$CI\" ]; then lawyer; fi && npm run build-static",
+    "prepublishOnly": "npm run build-static",
     "test": "npm run test-locales && jest --coverage",
     "test-locales": "npm run extract && npm run compile -- --strict",
     "extract": "lingui extract",

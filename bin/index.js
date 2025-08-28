@@ -16,7 +16,7 @@ argsParser
   .options('strict', { describe: 'Strict mode' })
   .options('css', { describe: 'Custom CSS file' })
   .options('favicon', { describe: 'Custom favicon' })
-  .options('locale', { describe: 'Set locale', default: 'en', choices: ['ru', 'zh-Hant', 'en'] });
+  .options('locale', { describe: 'Set locale', default: 'zh-Hant', choices: ['zh-Hant', 'en'] });
 
 const argv = argsParser.argv;
 

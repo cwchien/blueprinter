@@ -1,5 +1,5 @@
 module.exports = {
-  locales: ['ru', 'zh-Hant', 'en'],
+  locales: ['zh-Hant', 'en'],
   catalogs: [{
     path: 'src/locales/{locale}/messages',
     include: ['src/app', 'src/fb-base-blocks'],

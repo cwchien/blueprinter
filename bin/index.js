@@ -5,20 +5,21 @@ const { hideBin } = require('yargs/helpers');
 const { renderAndBuild } = require('./main');
 const { renderAndServe } = require('./live');
 
-const argv = yargs(hideBin(process.argv))
-  .usage('Usage: $0 [options] -i infile [-o outfile -s]')
-  .example('$0 -i example.apib -o output.html', 'Render to HTML')
-  .example('$0 -i example.apib -s', 'Start live server')
-  .option('i', { alias: 'input', describe: 'Input file' })
-  .option('o', { alias: 'output', describe: 'Output file' })
-  .option('s', { alias: 'server', describe: 'Start a local live preview server' })
-  .option('h', { alias: 'host', describe: 'Address to bind local preview server to', default: '127.0.0.1' })
-  .option('p', { alias: 'port', describe: 'Port for local preview server', default: 3001 })
-  .option('strict', { describe: 'Strict mode' })
-  .option('css', { describe: 'Custom CSS file' })
-  .option('favicon', { describe: 'Custom favicon' })
-  .option('locale', { describe: 'Set locale', default: 'zh-Hant', choices: ['zh-Hant', 'en'] })
-  .argv;
+const yargsInstance = yargs(hideBin(process.argv))
+  .usage('用法：$0 [選項] -i 輸入檔案 [-o 輸出檔案 -s]')
+  .example('$0 -i example.apib -o output.html', '輸出成 HTML')
+  .example('$0 -i example.apib -s', '啟動即時預覽')
+  .option('i', { alias: 'input', describe: '輸入檔案' })
+  .option('o', { alias: 'output', describe: '輸出檔案' })
+  .option('s', { alias: 'server', describe: '啟動本地即時預覽伺服器' })
+  .option('h', { alias: 'host', describe: '要綁定本地即時預覽伺服器的位址', default: '127.0.0.1' })
+  .option('p', { alias: 'port', describe: '本地即時預覽伺服器的通訊埠', default: 3001 })
+  .option('strict', { describe: '嚴格模式' })
+  .option('css', { describe: '自訂 CSS 檔案' })
+  .option('favicon', { describe: '自訂網站圖示 (favicon)' })
+  .option('locale', { describe: '設定語系', default: 'zh-Hant', choices: ['zh-Hant', 'en'] });
+
+const argv = yargsInstance.argv;
 
 const exit = (err) => {
   if (err) {
@@ -29,8 +30,8 @@ const exit = (err) => {
 };
 
 const argvError = () => {
-  console.log('Invalid arguments');
-  yargs.showHelp();
+  console.log('無效引數');
+  yargsInstance.showHelp();
   process.exit(1);
 };
 

@@ -13,7 +13,7 @@
 
 ## 引用套件
 ```shell
-npm install --save-dev dafeng-innov/blueprinter#v6.1.0
+npm install --save-dev dafeng-innov/blueprinter#df-zh
 ```
 
 ## 常用指令

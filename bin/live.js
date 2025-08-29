@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create();
 let refract = '';
 let customCss = '';
 let localeData = '';
-let locale = 'en';
+let locale = 'zh-Hant';
 
 const { BASE_PATH, renderRefract, renderCustomCss, renderLocale } = require('./main');
 

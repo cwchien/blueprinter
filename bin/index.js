@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 
-const argsParser = require('yargs');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
 const { renderAndBuild } = require('./main');
 const { renderAndServe } = require('./live');
 
-argsParser
+const argv = yargs(hideBin(process.argv))
   .usage('Usage: $0 [options] -i infile [-o outfile -s]')
   .example('$0 -i example.apib -o output.html', 'Render to HTML')
   .example('$0 -i example.apib -s', 'Start live server')
-  .options('i', { alias: 'input', describe: 'Input file' })
-  .options('o', { alias: 'output', describe: 'Output file' })
-  .options('s', { alias: 'server', describe: 'Start a local live preview server' })
-  .options('h', { alias: 'host', describe: 'Address to bind local preview server to', default: '127.0.0.1' })
-  .options('p', { alias: 'port', describe: 'Port for local preview server', default: 3001 })
-  .options('strict', { describe: 'Strict mode' })
-  .options('css', { describe: 'Custom CSS file' })
-  .options('favicon', { describe: 'Custom favicon' })
-  .options('locale', { describe: 'Set locale', default: 'zh-Hant', choices: ['zh-Hant', 'en'] });
-
-const argv = argsParser.argv;
+  .option('i', { alias: 'input', describe: 'Input file' })
+  .option('o', { alias: 'output', describe: 'Output file' })
+  .option('s', { alias: 'server', describe: 'Start a local live preview server' })
+  .option('h', { alias: 'host', describe: 'Address to bind local preview server to', default: '127.0.0.1' })
+  .option('p', { alias: 'port', describe: 'Port for local preview server', default: 3001 })
+  .option('strict', { describe: 'Strict mode' })
+  .option('css', { describe: 'Custom CSS file' })
+  .option('favicon', { describe: 'Custom favicon' })
+  .option('locale', { describe: 'Set locale', default: 'zh-Hant', choices: ['zh-Hant', 'en'] })
+  .argv;
 
 const exit = (err) => {
   if (err) {
@@ -30,7 +30,7 @@ const exit = (err) => {
 
 const argvError = () => {
   console.log('Invalid arguments');
-  argsParser.showHelp();
+  yargs.showHelp();
   process.exit(1);
 };
 

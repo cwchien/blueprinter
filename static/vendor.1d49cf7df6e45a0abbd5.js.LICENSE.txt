@@ -14,8 +14,6 @@ object-assign
 * @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
 */
 
-/*! http://mths.be/repeat v0.2.0 by @mathias */
-
 /** @license React v0.17.0
  * scheduler.production.min.js
  *
